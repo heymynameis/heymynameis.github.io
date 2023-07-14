@@ -1,7 +1,41 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Тестовая страница</title>
+</head> 
 <body>
-<h1>ЕБАТЬ-КОЛОТИТЬ</h1>
-<p>хоститься бесплатно можно на гите с помощью github pages!</p>
+	<header>
+    </header>
+	<section>
+	</section>
+    <script>
+	async function populate() {
+		const requestURL = 'https://heymynameis.github.io/data.json';
+		const request = new Request(requestURL);
+		
+		const response = await fetch(request);
+		const init_data = await response.text();
+	
+		const data = JSON.parse(init_data);
+		show_data(data);
+	}
+	
+	function show_data(jsonObj) {
+		const section = document.querySelector('section');
+		const myArticle = document.createElement('article');
+		
+		const myPara1 = document.createElement('p');
+		const myPara2 = document.createElement('p');
+		
+		myPara1.textContent = 'Первый элемент:' + jsonObj.first_var;
+		myPara2.textContent = 'Второй элемент:' + jsonObj.sec_var;
+		
+		myArticle.appendChild(myPara1);
+		myArticle.appendChild(myPara2);
+		section.appendChild(myArticle);
+	}
+	
+	populate();
+    </script>
 </body>
 </html>
