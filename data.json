@@ -1,4 +1,4 @@
 {
-  'first_var': 10,
-  'sec_var': 'ten'
+  "first_var": 10,
+  "sec_var": 'ten'
 }
